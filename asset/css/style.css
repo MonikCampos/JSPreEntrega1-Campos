@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Cookie";
+    src: url("../fonts/Cookie-Regular.ttf");
+}
+@font-face {
+    font-family: "Edu";
+    src: url("../fonts/EduNSWACTFoundation-VariableFont_wght.ttf");
+}
+
+.contenedorPortada {
+    text-shadow: 0 0 5px white; 
+    background-color: grey;
+    width: 100%;
+    height: 100px;
+    margin-bottom: 0;
+    border-radius: 0;
+    padding: 10px 0 0 20px;
+}
+.contenedorTitulos {
+    text-shadow: 0 0 5px white; 
+    background-color: grey;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 0;
+    border-radius: 0;
+    padding: 0;
+}
+.contenedorProductos {
+    padding: 10px;
+}
+
+h1 {
+    font-family: "Cookie";
+    font-size: 50px;
+    text-align: center;
+    color: white;
+}
+h2 {
+    font-family: "Edu";
+    font-size: 30px;
+}
+h3 {
+    font-family: "Edu";
+    font-size: 20px;
+}
+p {
+    font-family: "Edu";
+    font-size: 20px;
+}
+header p{
+    color: white;
+}
+.divisor {
+    background-color:grey;
+    height: "2px";
+    box-shadow: inset;
+}
+button {
+    font-family: "Edu";
+    text-transform: uppercase;
+    font-size: 10px;
+    background-color: black;
+    color: white;
+    padding: 0 20px;
+}
+
+button:hover {
+    transform: scale(1.05);
+    transition: all 0.9s;
+    background-color: grey;
+}
+
+nav a {
+    text-transform: uppercase;
+}
+nav a:hover {
+    transform: scale(1.02);
+    transition: all 0.9s;
+}
+nav a img:hover {
+    transform: scale(1.1);
+    transition: all 0.9s;
+}
+.navbar-brand:hover {
+    color: white;
+    transform: scale(1.05);
+    transition: all 0.9s;
+}
+
+footer {
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    height: 150px;
+    padding-top: 20px;
+}
+footer i {
+    font-size: 30px;
+    color: grey;
+    letter-spacing: 30px;
+}
+footer i:hover {
+    color: white;
+    transform: scale(1.05);
+    transition: all 0.9s;
+}
+
+.imgGoTop {
+    font-size: 40px;
+    color: black;
+    position: fixed;
+    bottom: 10px;
+    width: 30px;
+    height: 30px;
+}
