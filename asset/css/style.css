@@ -41,7 +41,7 @@
     border-radius: 0;
     padding: 0;
 }
-.contenedorProductos {
+.margenes {
     padding: 10px;
 }
 
@@ -72,6 +72,9 @@ hr {
     height: "3px";
     box-shadow: inset;
 }
+main {
+    height: 60px;
+}
 button {
     font-family: "Edu";
     text-transform: uppercase;
@@ -80,13 +83,11 @@ button {
     color: white;
     padding: 0 20px;
 }
-
 button:hover {
     transform: scale(1.05);
     transition: all 0.9s;
     background-color: grey;
 }
-
 nav a {
     text-transform: uppercase;
 }
@@ -106,7 +107,6 @@ nav a img:hover {
 b {
     color: red;
 }
-
 footer {
     color: #000;
     text-align: center;
@@ -124,7 +124,6 @@ footer i:hover {
     transform: scale(1.05);
     transition: all 0.9s;
 }
-
 .imgGoTop {
     font-size: 40px;
     color: black;

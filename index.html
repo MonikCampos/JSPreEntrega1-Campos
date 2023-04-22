@@ -19,9 +19,9 @@
   <!--inicia portada-->
   <header>
     <div class="contenedorPortada">
-
       <h2><img class="logo" src="./asset/img/favicon-32x32.png" alt="Simulador" /> <b>Simulador</b></h2>
-      <p>Carrito de compras: permite seleccionar productos, calcula iva y habilita el ingreso de la cantidad de cuotas y los intereses correspondientes al pago financiado.</p>
+      <p>Carrito de compras: permite seleccionar productos, calcula iva y habilita el ingreso de la cantidad de cuotas y
+        los intereses correspondientes al pago financiado.</p>
     </div>
   </header>
   <!--fin portada-->
@@ -32,90 +32,86 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <!-- <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="#linkListado">Listado de Productos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#linkResumen">Resumen de compra</a>
+            <a class="nav-link" href="#linkFacturacion">Facturación</a>
           </li>
         </ul>
-      </div> -->
+      </div>
     </nav>
     <!--navbar fin-->
-    <table width="100%">
-      <tr>
-        <td width="20%">
-          <div class="contenedorProductos">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-4">
+          <div class="margenes">
             <div class="contenedorTitulos">
               <h1>Productos</h1>
             </div>
-        </td>
-        <td width="65%">
-          <div class="contenedorTitulos">
-            <h1>Compra</h1>
           </div>
-        </td>
-      </tr>
-      <tr>
-        <td width="20%">
-          <div class="contenedorProductos">
-            <h2 id="linkListado">Listado de Productos</h2>
-            <ul id="productos">
-              <li>
-                <span>Producto 1</span>
-                <span>Precio: $100</span>
-                <button onclick="seleccionarProducto('Producto 1', 100)">Seleccionar</button>
-              </li>
-              <li>
-                <span>Producto 2</span>
-                <span>Precio: $200</span>
-                <button onclick="seleccionarProducto('Producto 2', 200)">Seleccionar</button>
-              </li>
-              <li>
-                <span>Producto 3</span>
-                <span>Precio: $300</span>
-                <button onclick="seleccionarProducto('Producto 3', 300)">Seleccionar</button>
-              </li>
-              <li>
-                <span>Producto 4</span>
-                <span>Precio: $400</span>
-                <button onclick="seleccionarProducto('Producto 4', 400)">Seleccionar</button>
-              </li>
-              <li>
-                <span>Producto 5</span>
-                <span>Precio: $500</span>
-                <button onclick="seleccionarProducto('Producto 5', 500)">Seleccionar</button>
-              </li>
-              <li>
-                <span>Producto 6</span>
-                <span>Precio: $600</span>
-                <button onclick="seleccionarProducto('Producto 6', 600)">Seleccionar</button>
-              </li>
-              <li>
-                <span>Producto 7</span>
-                <span>Precio: $700</span>
-                <button onclick="seleccionarProducto('Producto 7', 700)">Seleccionar</button>
-              </li>
-              <li>
-                <span>Producto 8</span>
-                <span>Precio: $800</span>
-                <button onclick="seleccionarProducto('Producto 8', 800)">Seleccionar</button>
-              </li>
-              <li>
-                <span>Producto 9</span>
-                <span>Precio: $900</span>
-                <button onclick="seleccionarProducto('Producto 9', 900)">Seleccionar</button>
-              </li>
-              <li>
-                <span>Producto 10</span>
-                <span>Precio: $1000</span>
-                <button onclick="seleccionarProducto('Producto 10', 1000)">Seleccionar</button>
-              </li>
-            </ul>
-        </td>
-        <td width="65%">
+          <h2 id="linkListado">Listado de Productos</h2>
+          <ul id="productos">
+            <li>
+              <span>Producto 1</span>
+              <span>Precio: $100</span>
+              <button onclick="seleccionarProducto('Producto 1', 100)">Seleccionar</button>
+            </li>
+            <li>
+              <span>Producto 2</span>
+              <span>Precio: $200</span>
+              <button onclick="seleccionarProducto('Producto 2', 200)">Seleccionar</button>
+            </li>
+            <li>
+              <span>Producto 3</span>
+              <span>Precio: $300</span>
+              <button onclick="seleccionarProducto('Producto 3', 300)">Seleccionar</button>
+            </li>
+            <li>
+              <span>Producto 4</span>
+              <span>Precio: $400</span>
+              <button onclick="seleccionarProducto('Producto 4', 400)">Seleccionar</button>
+            </li>
+            <li>
+              <span>Producto 5</span>
+              <span>Precio: $500</span>
+              <button onclick="seleccionarProducto('Producto 5', 500)">Seleccionar</button>
+            </li>
+            <li>
+              <span>Producto 6</span>
+              <span>Precio: $600</span>
+              <button onclick="seleccionarProducto('Producto 6', 600)">Seleccionar</button>
+            </li>
+            <li>
+              <span>Producto 7</span>
+              <span>Precio: $700</span>
+              <button onclick="seleccionarProducto('Producto 7', 700)">Seleccionar</button>
+            </li>
+            <li>
+              <span>Producto 8</span>
+              <span>Precio: $800</span>
+              <button onclick="seleccionarProducto('Producto 8', 800)">Seleccionar</button>
+            </li>
+            <li>
+              <span>Producto 9</span>
+              <span>Precio: $900</span>
+              <button onclick="seleccionarProducto('Producto 9', 900)">Seleccionar</button>
+            </li>
+            <li>
+              <span>Producto 10</span>
+              <span>Precio: $1000</span>
+              <button onclick="seleccionarProducto('Producto 10', 1000)">Seleccionar</button>
+            </li>
+          </ul>
+        </div>
+        <div class="col-8">
+          <div class="margenes">
+            <div class="contenedorTitulos">
+              <h1>Compra</h1>
+            </div>
+          </div>
           <h2 id="linkResumen">Resumen de Compra</h2>
           <h3>Pago Contado</h3>
           <p id="resumen"></p>
@@ -126,20 +122,28 @@
           <h3 id="linkCuotas">Pago Financiado</h3>
           <p><b>Cuotas: <span id="cuotas"></span>-Interés: <span id="interes"></span>%</b></p>
           <p><b>Total Con Intereses: $<span id="totalConIntereses"></span></b></p>
-          <p><b>Cada Cuota: $<span id="cadaCuota"></span></b></p>
+          <p><b>Cada Cuota: $<span id="cadaCuota"></span> aprox.</b></p>
           <p>Total Sin Intereses: $<span id="totalSinInteres"></span></p>
           <button onclick="aplicarCuotas()">Aplicar Cuotas</button>
           <button onclick="limpiarCompra()">Limpiar Compra</button>
+        </div>
+        <div class="col-12">
+          <div class="margenes">
+            <div class="contenedorTitulos">
+              <h1 id="linkFacturacion">Facturación</h1>
+              <p><b>Empleado: <span id="nombreEmpleado"></span></b></p>
+              <button onclick="seleccionarEmpleado()">Seleccionar Empleado</button>
+              <button onclick="enviarFacturacion()">Enviar Factura</button>
+            </div>
           </div>
-          <br><br><br><br><br><br>
-        </td>
-      </tr>
-    </table>
-    <script src="./asset/js/simuladorCarrito.js"></script>
+        </div>
+      </div>
+
+    </div>
   </main>
 
   <!--inicio footer-->
-  <footer class="container-fluid bg-dark text-light">
+  <!-- <footer class="container-fluid bg-dark text-light">
     <div class="row">
       <div class="col-12">
         <a href="https://www.linkedin.com/in/monicaacampos" target="_blank">
@@ -161,8 +165,9 @@
         </div>
       </div>
     </div>
-  </footer>
+  </footer> -->
   <!--fin footer-->
+  <script src="./asset/js/simuladorCarrito.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
   </script>

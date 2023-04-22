@@ -5,8 +5,10 @@ let interes = 0;
 const iva = 21;
 let totalSinInteres = 0;
 let totalConIva = 0;
-let totalConIntereses = 0 ;
+let totalConIntereses = 0;
 let cadaCuota = 0;
+let empleadoID = 0;
+let empleadoNombre = "";
 
 function seleccionarProducto(nombre, precio) {
     let producto = {
@@ -18,7 +20,7 @@ function seleccionarProducto(nombre, precio) {
     };
     carrito.push(producto);
     total += precio;
-    calcularIva(total,iva);
+    calcularIva(total, iva);
     mostrarResumen();
 }
 
@@ -26,7 +28,9 @@ function calcularIva(totalSinIva, tasaIva) {
     let porcentajeIva = totalSinIva * (tasaIva / 100);
     totalConIva = total + porcentajeIva;
     totalSinInteres = totalConIva
-    return { totalConIva };
+    return {
+        totalConIva
+    };
 }
 
 
@@ -43,7 +47,7 @@ function aplicarCuotas() {
         let porcentajeDelTotal = producto.subtotal / totalConIva;
         producto.subtotal = producto.precio + (porcentajeDelTotal * intereses);
     }
-    cadaCuota = totalConIntereses / cuotas;
+    cadaCuota = Math.round(totalConIntereses / cuotas);
     mostrarResumen();
 }
 
@@ -55,8 +59,58 @@ function limpiarCompra() {
     totalSinInteres = 0;
     totalConIva = 0;
     cadaCuota = 0;
+    empleadoID = 0;
+    empleadoNombre = "";
     mostrarResumen();
 }
+
+function enviarFacturacion() {
+    let respuesta;
+    respuesta = prompt("Confirmar Venta S/N:");
+    if (respuesta === "S") {
+        let factura = {
+            // utilizaría estos datos para enviar la factura
+            fecha: new Date(),
+            total: total,
+            cuotas: cuotas,
+            interes: interes,
+            totalSinInteres: totalSinInteres,
+            totalConIva: totalConIva,
+            carrito: carrito,
+            empleadoID: empleadoID
+        };
+        mostrarFactura();
+    } else {
+        alert("Venta cancelada");
+    }
+}
+
+function mostrarEmpleado (nombre) {
+    document.getElementById("nombreEmpleado").innerHTML = nombre;
+}
+
+function seleccionarEmpleado() {
+    let nroEmpleado = parseInt(prompt("Seleccione el empleado / 1- José Rodriguez / 2-María Gutierrez / 3-Martín Fernandez"));
+    switch (nroEmpleado) {
+        case 1: 
+            empleadoID = nroEmpleado;
+            mostrarEmpleado("José Rodriguez");
+            break;
+        case 2:
+            empleadoID = nroEmpleado;
+            mostrarEmpleado("María Gutierrez");
+            break;
+        case 3:
+            empleadoID = nroEmpleado;
+            mostrarEmpleado("Martín Fernandez");
+            break;
+        default:
+            alert("No existe el empleado, ingrese la opción nuevamente");
+            break;
+    }
+}
+
+
 
 function mostrarResumen() {
     let listaResumen = document.getElementById("resumen");
