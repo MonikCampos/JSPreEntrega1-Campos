@@ -14,4 +14,4 @@
 </p>
 
 <h3 align="left">Languages and Tools:</h3>
-<p align="left"><img src="./asset/img/html-css-js-icon.png" alt="html-css-js" width="90" height="20"/></p>
+<p align="left"><img src="./asset/img/html-css-js-icon.png" alt="html-css-js" width="120" height="20"/></p>

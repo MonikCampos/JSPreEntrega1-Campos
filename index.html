@@ -18,17 +18,22 @@
 <body onload="limpiarResumen()">
   <!--inicia portada-->
   <header>
-    <div class="contenedorPortada">
-      <h2><img class="logo" src="./asset/img/favicon-32x32.png" alt="Simulador" /> <b>Simulador</b></h2>
-      <p>Carrito de compras: permite seleccionar productos, calcula iva y habilita el ingreso de la cantidad de cuotas y
-        los intereses correspondientes al pago financiado.</p>
+    <div class="container-fluid contenedorPortada">
+      <div class="row">
+        <div class="col-12">
+          <h2><b>Simulador</b></h2>
+          <p>Carrito de compras: permite seleccionar productos, calcula iva y habilita el ingreso de la cantidad de
+            cuotas y
+            los intereses correspondientes al pago financiado.</p>
+        </div>
+      </div>
     </div>
   </header>
   <!--fin portada-->
   <main>
     <!--navbar inicia-->
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-      <a class="navbar-brand" href="#">Simulador</a>
+      <!-- <a class="navbar-brand" href="#">Simulador</a> -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -138,36 +143,13 @@
           </div>
         </div>
       </div>
-
     </div>
+    <br><br>
   </main>
 
   <!--inicio footer-->
-  <!-- <footer>
-    <div class="container-fluid bg-dark text-light">
-      <div class="row">
-        <div class="col-12">
-          <a href="https://www.linkedin.com/in/monicaacampos" target="_blank">
-            <i class="fa-brands fa-linkedin"></i>
-          </a>
-        </div>
-      </div>
-      <div class="col-12">
-        <h5>Copyright ©2023 Mónica Campos</h5>
-      </div>
-    </div>
-    </div>
-    <div class="container justify-content-center">
-      <div class="row">
-        <div class="col-12">
-          <a href="#goTop" class="imgGoTop">
-            <i class="fa-solid fa-chevron-up"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-    </div>
-  </footer> -->
+  <footer>
+  </footer>
   <!--fin footer-->
   <script src="./asset/js/simuladorCarrito.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
@@ -180,4 +162,5 @@
     integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous">
   </script>
 </body>
+
 </html>

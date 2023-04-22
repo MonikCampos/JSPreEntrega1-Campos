@@ -33,11 +33,10 @@ function calcularIva(totalSinIva, tasaIva) {
     };
 }
 
-
 function aplicarCuotas() {
     totalSinInteres = totalConIva;
-    cuotas = prompt("Ingrese la cantidad de cuotas:");
-    interes = prompt("Ingrese el interés (%):");
+    cuotas = parseInt(prompt("Ingrese la cantidad de cuotas:"));
+    interes = parseInt(prompt("Ingrese el interés (%):"));
     let intereses = totalConIva * (interes / 100);
     totalConIntereses = totalConIva + intereses;
     for (let i = 0; i < carrito.length; i++) {
@@ -57,6 +56,7 @@ function limpiarCompra() {
     cuotas = 1;
     interes = 0;
     totalSinInteres = 0;
+    totalConInteres = 0;
     totalConIva = 0;
     cadaCuota = 0;
     empleadoID = 0;
@@ -64,24 +64,32 @@ function limpiarCompra() {
     mostrarResumen();
 }
 
-function enviarFacturacion() {
+function enviarFacturacion () {
     let respuesta;
-    respuesta = prompt("Confirmar Venta S/N:");
-    if (respuesta === "S") {
-        let factura = {
-            // utilizaría estos datos para enviar la factura
-            fecha: new Date(),
-            total: total,
-            cuotas: cuotas,
-            interes: interes,
-            totalSinInteres: totalSinInteres,
-            totalConIva: totalConIva,
-            carrito: carrito,
-            empleadoID: empleadoID
-        };
-        mostrarFactura();
-    } else {
-        alert("Venta cancelada");
+    if (total === 0) {
+        alert ("Debe seleccionar por lo menos un producto para vender");
+    } else { 
+        if (empleadoID === 0) {
+            alert ("Debe seleccionar un empleado para facturar");
+        } else {
+            respuesta = prompt("Confirmar Venta S/N:"); //convertir a mayusculas y erificar si es pago contado o ctas para imprimir
+            if (respuesta === "S") {
+                let factura = {
+                    // utilizaría estos datos para enviar/imprimir la factura
+                    fecha: new Date(),
+                    total: total,
+                    cuotas: cuotas,
+                    interes: interes,
+                    totalSinInteres: totalSinInteres,
+                    totalConIva: totalConIva,
+                    carrito: carrito,
+                    empleadoID: empleadoID
+                };
+                alert ("Factura Nro XXX - Fecha " + factura.fecha + " Monto: " + factura.totalConIva);
+            } else {
+                alert("Venta cancelada");
+            }
+        }
     }
 }
 
@@ -109,8 +117,6 @@ function seleccionarEmpleado() {
             break;
     }
 }
-
-
 
 function mostrarResumen() {
     let listaResumen = document.getElementById("resumen");
