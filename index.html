@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
@@ -14,26 +14,23 @@
   <link rel="stylesheet" href="./asset/css/style.css" />
   <title>Simulador</title>
 </head>
-
 <body onload="limpiarResumen()">
-  <!--inicia portada-->
   <header>
-    <div class="container-fluid contenedorPortada">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 contenedorPortada">
           <h2><b>Simulador</b></h2>
-          <p>Carrito de compras: permite seleccionar productos, calcula iva y habilita el ingreso de la cantidad de
-            cuotas y
-            los intereses correspondientes al pago financiado.</p>
+          <p>
+            Carrito de compras: permite seleccionar productos, calcula iva y
+            habilita el ingreso de la cantidad de cuotas y los intereses
+            correspondientes al pago financiado. Imprime factura en pantalla.
+          </p>
         </div>
       </div>
     </div>
   </header>
-  <!--fin portada-->
   <main>
-    <!--navbar inicia-->
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-      <!-- <a class="navbar-brand" href="#">Simulador</a> -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -48,109 +45,137 @@
         </ul>
       </div>
     </nav>
-    <!--navbar fin-->
     <div class="container-fluid">
       <div class="row">
-        <div class="col-4">
-          <div class="margenes">
-            <div class="contenedorTitulos">
-              <h1>Productos</h1>
-            </div>
+        <aside class="nleft col-lg-4">
+          <div class="contenedorTitulos">
+            <h1>Productos</h1>
           </div>
           <h2 id="linkListado">Listado de Productos</h2>
           <ul id="productos">
             <li>
               <span>Producto 1</span>
               <span>Precio: $100</span>
-              <button onclick="seleccionarProducto('Producto 1', 100)">Seleccionar</button>
+              <button onclick="seleccionarProducto('Producto 1', 100)">
+                Seleccionar
+              </button>
             </li>
             <li>
               <span>Producto 2</span>
               <span>Precio: $200</span>
-              <button onclick="seleccionarProducto('Producto 2', 200)">Seleccionar</button>
+              <button onclick="seleccionarProducto('Producto 2', 200)">
+                Seleccionar
+              </button>
             </li>
             <li>
               <span>Producto 3</span>
               <span>Precio: $300</span>
-              <button onclick="seleccionarProducto('Producto 3', 300)">Seleccionar</button>
+              <button onclick="seleccionarProducto('Producto 3', 300)">
+                Seleccionar
+              </button>
             </li>
             <li>
               <span>Producto 4</span>
               <span>Precio: $400</span>
-              <button onclick="seleccionarProducto('Producto 4', 400)">Seleccionar</button>
+              <button onclick="seleccionarProducto('Producto 4', 400)">
+                Seleccionar
+              </button>
             </li>
             <li>
               <span>Producto 5</span>
               <span>Precio: $500</span>
-              <button onclick="seleccionarProducto('Producto 5', 500)">Seleccionar</button>
+              <button onclick="seleccionarProducto('Producto 5', 500)">
+                Seleccionar
+              </button>
             </li>
             <li>
               <span>Producto 6</span>
               <span>Precio: $600</span>
-              <button onclick="seleccionarProducto('Producto 6', 600)">Seleccionar</button>
+              <button onclick="seleccionarProducto('Producto 6', 600)">
+                Seleccionar
+              </button>
             </li>
             <li>
               <span>Producto 7</span>
               <span>Precio: $700</span>
-              <button onclick="seleccionarProducto('Producto 7', 700)">Seleccionar</button>
+              <button onclick="seleccionarProducto('Producto 7', 700)">
+                Seleccionar
+              </button>
             </li>
             <li>
               <span>Producto 8</span>
               <span>Precio: $800</span>
-              <button onclick="seleccionarProducto('Producto 8', 800)">Seleccionar</button>
+              <button onclick="seleccionarProducto('Producto 8', 800)">
+                Seleccionar
+              </button>
             </li>
             <li>
               <span>Producto 9</span>
               <span>Precio: $900</span>
-              <button onclick="seleccionarProducto('Producto 9', 900)">Seleccionar</button>
+              <button onclick="seleccionarProducto('Producto 9', 900)">
+                Seleccionar
+              </button>
             </li>
             <li>
               <span>Producto 10</span>
               <span>Precio: $1000</span>
-              <button onclick="seleccionarProducto('Producto 10', 1000)">Seleccionar</button>
+              <button onclick="seleccionarProducto('Producto 10', 1000)">
+                Seleccionar
+              </button>
             </li>
           </ul>
-        </div>
-        <div class="col-8">
-          <div class="margenes">
-            <div class="contenedorTitulos">
-              <h1>Compra</h1>
-            </div>
+        </aside>
+        <aside class="nright col-lg-8">
+          <div class="contenedorTitulos">
+            <h1>Compra</h1>
           </div>
           <h2 id="linkResumen">Resumen de Compra</h2>
           <h3>Pago Contado</h3>
           <p id="resumen"></p>
           <p>Total: $<span id="total"></span></p>
-          <p><b>Total Con Iva (21%): $<span id="totalConIva"></span></b></p>
+          <p>
+            <b>Total Con Iva (21%): $<span id="totalConIva"></span></b>
+          </p>
           <button onclick="limpiarCompra()">Limpiar Compra</button>
-          <hr>
+          <hr />
           <h3 id="linkCuotas">Pago Financiado</h3>
-          <p><b>Cuotas: <span id="cuotas"></span>-Interés: <span id="interes"></span>%</b></p>
-          <p><b>Total Con Intereses: $<span id="totalConIntereses"></span></b></p>
-          <p><b>Cada Cuota: $<span id="cadaCuota"></span> aprox.</b></p>
+          <p>
+            <b>Cuotas: <span id="cuotas"></span>-Interés:
+              <span id="interes"></span>%</b>
+          </p>
+          <p>
+            <b>Total Con Intereses: $<span id="totalConIntereses"></span></b>
+          </p>
+          <p>
+            <b>Cada Cuota: $<span id="cadaCuota"></span> aprox.</b>
+          </p>
           <p>Total Sin Intereses: $<span id="totalSinInteres"></span></p>
           <button onclick="aplicarCuotas()">Aplicar Cuotas</button>
           <button onclick="limpiarCompra()">Limpiar Compra</button>
-        </div>
+        </aside>
+      </div>
+    </div>
+    <br>
+    <div class="container-fluid">
+      <div class="row">
         <div class="col-12">
-          <div class="margenes">
-            <div class="contenedorTitulos">
-              <h1 id="linkFacturacion">Facturación</h1>
-              <p><b>Empleado: <span id="empleadoNombre"></span></b></p>
-              <button onclick="seleccionarEmpleado()">Seleccionar Empleado</button>
-              <button onclick="enviarFacturacion()">Enviar Factura</button>
-            </div>
+          <div class="contenedorTitulos">
+            <h1 id="linkFacturacion">Facturación</h1>
           </div>
+          <p>
+            <b>Empleado: <span id="empleadoNombre"></span></b>
+          </p>
+          <button onclick="seleccionarEmpleado()">
+            Seleccionar Empleado
+          </button>
+          <button onclick="enviarFacturacion()">Enviar Factura</button>
         </div>
       </div>
     </div>
+    <br><br><br>
   </main>
-
-  <!--inicio footer-->
   <footer>
-    <br><br>
   </footer>
-  <!--fin footer-->
   <script src="./asset/js/simuladorCarrito.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

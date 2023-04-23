@@ -148,7 +148,7 @@ function enviarFacturacion() {
                 if (factura.cuotas === 1) {
                     FacturaPie = `\n Total: ${factura.totalConIva}`;
                 } else {
-                    FacturaPie = `\n Total: ${factura.totalConIntereses} - ${factura.cuotas} cuotas al ${factura.interes}%`;
+                    FacturaPie = `\n Total: ${factura.totalConIntereses} - ${factura.cuotas} cuotas al ${factura.interes}% de interés`;
                 }
                 alert(FacturaEncabezado + FacturaCuerpo + FacturaPie);
             } else {
