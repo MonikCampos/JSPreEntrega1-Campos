@@ -27,10 +27,7 @@ function seleccionarProducto(nombre, precio) {
 function calcularIva(totalSinIva, tasaIva) {
     let porcentajeIva = totalSinIva * (tasaIva / 100);
     totalConIva = total + porcentajeIva;
-    totalSinInteres = totalConIva
-    return {
-        totalConIva
-    };
+    totalSinInteres = totalConIva;
 }
 
 function aplicarCuotas() {
@@ -50,6 +47,24 @@ function aplicarCuotas() {
     mostrarResumen();
 }
 
+function mostrarResumen() {
+    let listaResumen = document.getElementById("resumen");
+    listaResumen.innerHTML = "";
+    for (let i = 0; i < carrito.length; i++) {
+        let producto = carrito[i];
+        let li = document.createElement("li");
+        li.innerHTML = producto.nombre + ': $' + producto.precio.toFixed(2);
+        listaResumen.appendChild(li);
+    }
+    document.getElementById("totalSinInteres").innerHTML = totalSinInteres;
+    document.getElementById("totalConIntereses").innerHTML = totalConIntereses;
+    document.getElementById("totalConIva").innerHTML = totalConIva;
+    document.getElementById("total").innerHTML = total.toFixed(2);
+    document.getElementById("cuotas").innerHTML = cuotas;
+    document.getElementById("cadaCuota").innerHTML = cadaCuota;
+    document.getElementById("interes").innerHTML = interes;
+}
+
 function limpiarCompra() {
     carrito = [];
     total = 0;
@@ -64,53 +79,32 @@ function limpiarCompra() {
     mostrarResumen();
 }
 
-function enviarFacturacion () {
-    let respuesta;
-    if (total === 0) {
-        alert ("Debe seleccionar por lo menos un producto para vender");
-    } else { 
-        if (empleadoID === 0) {
-            alert ("Debe seleccionar un empleado para facturar");
-        } else {
-            respuesta = prompt("Confirmar Venta S/N:"); //convertir a mayusculas y erificar si es pago contado o ctas para imprimir
-            if (respuesta === "S") {
-                let factura = {
-                    // utilizaría estos datos para enviar/imprimir la factura
-                    fecha: new Date(),
-                    total: total,
-                    cuotas: cuotas,
-                    interes: interes,
-                    totalSinInteres: totalSinInteres,
-                    totalConIva: totalConIva,
-                    carrito: carrito,
-                    empleadoID: empleadoID
-                };
-                alert ("Factura Nro XXX - Fecha " + factura.fecha + " Monto: " + factura.totalConIva);
-            } else {
-                alert("Venta cancelada");
-            }
-        }
-    }
-}
-
-function mostrarEmpleado (nombre) {
-    document.getElementById("nombreEmpleado").innerHTML = nombre;
+function mostrarEmpleado(nombre) {
+    document.getElementById("empleadoNombre").innerHTML = nombre;
 }
 
 function seleccionarEmpleado() {
-    let nroEmpleado = parseInt(prompt("Seleccione el empleado / 1- José Rodriguez / 2-María Gutierrez / 3-Martín Fernandez"));
+    let nroEmpleado = parseInt(prompt("Seleccione el empleado:\n 1- José Rodriguez \n 2-María Gutierrez \n 3-Martín Fernandez \n 4-Laura Garcia"));
     switch (nroEmpleado) {
-        case 1: 
+        case 1:
             empleadoID = nroEmpleado;
-            mostrarEmpleado("José Rodriguez");
+            empleadoNombre = "José Rodriguez"
+            mostrarEmpleado(empleadoNombre);
             break;
         case 2:
             empleadoID = nroEmpleado;
-            mostrarEmpleado("María Gutierrez");
+            empleadoNombre = "María Gutierrez"
+            mostrarEmpleado(empleadoNombre);
             break;
         case 3:
             empleadoID = nroEmpleado;
-            mostrarEmpleado("Martín Fernandez");
+            empleadoNombre = "Martín Fernandez"
+            mostrarEmpleado(empleadoNombre);
+            break;
+        case 4:
+            empleadoID = nroEmpleado;
+            empleadoNombre = "Laura Garcia"
+            mostrarEmpleado(empleadoNombre);
             break;
         default:
             alert("No existe el empleado, ingrese la opción nuevamente");
@@ -118,21 +112,52 @@ function seleccionarEmpleado() {
     }
 }
 
-function mostrarResumen() {
-    let listaResumen = document.getElementById("resumen");
-    listaResumen.innerHTML = "";
-    for (let i = 0; i < carrito.length; i++) {
-        let producto = carrito[i];
-        let li = document.createElement("li");
-        // li.innerHTML = producto.nombre + ': $' + producto.precio.toFixed(2) + ' (' + producto.cuotas + ' cuotas al ' + producto.interes + '%)';
-        li.innerHTML = producto.nombre + ': $' + producto.precio.toFixed(2);
-        listaResumen.appendChild(li);
+function enviarFacturacion() {
+    let respuesta;
+    if (total === 0) {
+        alert("Debe seleccionar por lo menos un producto para vender");
+    } else {
+        if (empleadoID === 0) {
+            alert("Debe seleccionar un empleado para facturar");
+        } else {
+            respuesta = prompt("Confirmar Venta S/N:");
+            if (respuesta === "S" || respuesta === "s") {
+                let factura = {
+                    // utilizaría este objeto para enviar/imprimir la factura
+                    //ahora se muestrará solo en un alert
+                    fecha: new Date(),
+                    empleadoID: empleadoID,
+                    empleadoNombre: empleadoNombre,
+                    carrito: carrito,
+                    totalConIva: totalConIva,
+                    totalSinInteres: totalSinInteres,
+                    cuotas: cuotas,
+                    interes: interes,
+                    totalConIntereses: totalConIntereses
+                };
+                let FacturaEncabezado = "";
+                let FacturaCuerpo = "";
+                let FacturaPie = "";
+                let nroFactura = parseInt(getRandomArbitrary(1000000, 9999999));
+                FacturaEncabezado = `Factura Nro ${nroFactura} \nFecha ${factura.fecha} \nEmpleado: ${factura.empleadoNombre}\n\n`;
+                let cuerpo;
+                for (let i = 0; i < carrito.length; i++) {
+                    cuerpo = carrito[i].nombre + ': $' + carrito[i].precio.toFixed(2);
+                    FacturaCuerpo = FacturaCuerpo + cuerpo + '\n';
+                }
+                if (factura.cuotas === 1) {
+                    FacturaPie = `\n Total: ${factura.totalConIva}`;
+                } else {
+                    FacturaPie = `\n Total: ${factura.totalConIntereses} - ${factura.cuotas} cuotas al ${factura.interes}%`;
+                }
+                alert(FacturaEncabezado + FacturaCuerpo + FacturaPie);
+            } else {
+                alert("Venta cancelada");
+            }
+        }
     }
-    document.getElementById("totalSinInteres").innerHTML = totalSinInteres;
-    document.getElementById("totalConIntereses").innerHTML = totalConIntereses;
-    document.getElementById("totalConIva").innerHTML = totalConIva;
-    document.getElementById("total").innerHTML = total.toFixed(2);
-    document.getElementById("cuotas").innerHTML = cuotas;
-    document.getElementById("cadaCuota").innerHTML = cadaCuota;
-    document.getElementById("interes").innerHTML = interes;
+}
+
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
 }
